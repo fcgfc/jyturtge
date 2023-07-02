@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kohfdd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kohfdd
+  template:
+    metadata:
+      labels:
+        app: kohfdd
+    spec:
+      containers:
+      - image: okteto.dev/kohfdd:latest
+        name: kohfdd
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "46d43318-c98f-4bae-ab91-61ca02308974"
+        - name: Vless_Path
+          value: "/vl666666"
+        - name: Vmess_UUID
+          value: "46d43318-c98f-4bae-ab91-61ca02308974"
+        - name: Vmess_Path
+          value: "/vm666666"
+        - name: Share_Path
+          value: "/v2link"
